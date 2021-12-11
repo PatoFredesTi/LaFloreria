@@ -21,42 +21,57 @@ class SubcategorySeeder extends Seeder
                 'category_id' => 1,
                 'name' => 'Amor y Aniversario',
                 'slug' => Str::slug('Amor y Aniversario'),
-                'color' => true
+                'color' => true,
+                'size' => true,
             ],
             [
                 'category_id' => 1,
                 'name' => 'Amor',
                 'slug' => Str::slug('Amor'),
+                'color' => true,
+                'size' => true,
             ],
             [
                 'category_id' => 1,
                 'name' => 'Aniversario',
                 'slug' => Str::slug('Aniversario'),
+                'color' => true,
+                'size' => true,
             ],
             [
                 'category_id' => 4,
                 'name' => 'Peluches',
                 'slug' => Str::slug('Peluches'),
+                'color' => true,
+                'size' => true,
             ],
             [
                 'category_id' => 4,
                 'name' => 'Chocolates',
                 'slug' => Str::slug('Choocolates'),
+                'color' => true,
+                'size' => true,
             ],
             [
                 'category_id' => 4,
                 'name' => 'Globos',
                 'slug' => Str::slug('Globos'),
+                'color' => true,
+                'size' => true,
             ],
             [
                 'category_id' => 5,
                 'name' => 'Coronas',
                 'slug' => Str::slug('Coronas'),
+                'color' => true,
+                'size' => true,
             ],
             [
                 'category_id' => 5,
                 'name' => 'Cojines',
                 'slug' => Str::slug('Cojines'),
+                'color' => true,
+                'size' => true,
             ],
         ];
 
