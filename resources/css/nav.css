@@ -1,0 +1,12 @@
+#navigation-menu{
+    height: calc(100vh - 4rem);
+    background-color: bg-gray-100;
+}
+
+.navigation-link:hover .navigation-submenu{
+    display: block !important;; 
+}
+
+#bg-menu{
+    background-color: #f0fdfa;
+}

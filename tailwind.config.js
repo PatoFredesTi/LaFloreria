@@ -18,10 +18,11 @@ module.exports = {
             },
 
             colors: {
-                tea : colors.teal,
-                truegray : colors.trueGray,
+                Teal: colors.teal,
+                teal : colors.teal,
+                trueGray: colors.trueGray,
                 orange: colors.orange,
-                greenLime : colors.lime,
+                Cyan : colors.cyan,
             }
         },
     },
