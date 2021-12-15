@@ -19,13 +19,6 @@ class SubcategorySeeder extends Seeder
         $subcategories = [
             [
                 'category_id' => 1,
-                'name' => 'Amor y Aniversario',
-                'slug' => Str::slug('Amor y Aniversario'),
-                'color' => true,
-                'size' => true,
-            ],
-            [
-                'category_id' => 1,
                 'name' => 'Amor',
                 'slug' => Str::slug('Amor'),
                 'color' => true,
@@ -35,6 +28,27 @@ class SubcategorySeeder extends Seeder
                 'category_id' => 1,
                 'name' => 'Aniversario',
                 'slug' => Str::slug('Aniversario'),
+                'color' => true,
+                'size' => true,
+            ],
+            [
+                'category_id' => 2,
+                'name' => 'Niños',
+                'slug' => Str::slug('Nacimientos'),
+                'color' => true,
+                'size' => true,
+            ],
+            [
+                'category_id' => 2,
+                'name' => 'Niñas',
+                'slug' => Str::slug('Nacimientos'),
+                'color' => true,
+                'size' => true,
+            ],
+            [
+                'category_id' => 3,
+                'name' => 'Cumpleaños',
+                'slug' => Str::slug('Cumpleaños'),
                 'color' => true,
                 'size' => true,
             ],

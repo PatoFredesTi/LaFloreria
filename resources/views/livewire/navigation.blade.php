@@ -90,7 +90,7 @@
                 <ul id="bg-menu">
                     @foreach ($categories as $category)
                         <li class="navigation-link text-gray-900 hover:bg-teal-200 hover:text-teal-700 font-bold">
-                            <a href="" class="py-2 px-4 text-sm flex items-center">
+                            <a href="{{route('categories.show', $category)}}" class="py-2 px-4 text-sm flex items-center">
                                 {{$category->name}}
                                 
                                 <span class="flex justify-center w-6">

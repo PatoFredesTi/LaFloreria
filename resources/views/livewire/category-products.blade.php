@@ -7,12 +7,14 @@
                     <li class="bg-white rounded-lg shadow {{$loop->last ? '' : 'mr-3'}}">
                         <article>
                             <figure>
-                                <img src="{{Storage::url($product->images->first()->url)}}" alt="">
+                                <a href="{{route('products.show', $product)}}">
+                                    <img class="h-48 w-full object-cover object-center" src="{{Storage::url($product->images->first()->url)}}" alt="">
+                                </a>
                             </figure>
 
                             <div class="py-4 px-6">
                                 <h1 class="text-lg font-semibold">
-                                    <a href="">
+                                    <a href="{{route('products.show', $product)}}">
                                         {{Str::limit($product->name, 20)}}
                                     </a>
                                 </h1>

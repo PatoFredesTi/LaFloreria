@@ -2,9 +2,10 @@
     <div class="container py-8">
         @foreach ($categories as $category)
             <section class="mb-6">
-                <h1 class="text-lg uppercase  font-semibold text-gray-700">
+                
+                <a href="{{route('categories.show', $category)}}" class="text-lg uppercase font-semibold text-gray-700 hover:underline">
                     {{$category->name}}
-                </h1>
+                </a>
 
                 @livewire('category-products', ['category' => $category])
             </section>
@@ -18,11 +19,53 @@
                     slidesToShow: 5,
                     slidesToScroll: 5,
                     draggable: true,
-                    dots: '.dots',
+                    dots: '.glider-' + id + '~ .dots',
                     arrows: {
-                        prev: '.glider-prev',
-                        next: '.glider-next'
-                    }
+                        prev: '.glider-' + id + '~ .glider-prev',
+                        next: '.glider-' + id + '~ .glider-next'
+                    },
+                    responsive: [
+                        {
+                            breakpoint: 1280,
+                            settings: {
+                                slidesToShow: 5,
+                                slidesToScroll: 5,
+                                draggable: true,
+                            }
+                        },
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 4,
+                                slidesToScroll: 4,
+                                draggable: true,
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3,
+                                draggable: true,
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2,
+                                draggable: true,
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                draggable: true,
+                            }
+                        }
+                    ]
                 });
             });
         </script>
