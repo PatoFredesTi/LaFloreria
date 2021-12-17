@@ -1,5 +1,5 @@
 
-<header class="sticky top-0 z-50" x-data="dropdown()">
+<header class="bg-gray-100 sticky top-0 z-50" x-data="dropdown()">
     <div class="container flex items-center h-16 justify-between md:justify-start">
         <a href="/" >
             <img src="{{ asset('img/logo.png') }}" alt="logo" class="h-16 w-auto ">
@@ -7,7 +7,7 @@
         <a  :class="{'bg-teal-50 text-teal-800' : open}"
             x-on:click="show()"
             class="flex justify-center items-center px-6 mx-4 text-gray-400 cursor-pointer h-full font-semibold">
-            <svg class=" h-10 w-10" stroke="#14b8a6" fill="none" viewBox="0 0 24 24">
+            <svg class=" h-10 w-10 hover:h-11 hover:w-11" stroke="#14b8a6" fill="none" viewBox="0 0 24 24">
                 <path : class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
             <span >Menú</span>
@@ -58,7 +58,7 @@
             <div class="mx-6 relative">    
                 <x-jet-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <i class="fas fa-user-circle color_props text-2xl cursor-pointer"></i>
+                        <i class="fas fa-user-circle color_props text-teal-500 text-3xl cursor-pointer hover:text-4xl"></i>
                     </x-slot>
 
                     <x-slot name="content">

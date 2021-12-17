@@ -6,7 +6,8 @@
                 @foreach ($products as $product)
                     <li class="bg-white rounded-lg shadow {{$loop->last ? '' : 'mr-3'}}">
                         <article>
-                            <figure>
+                            <figure class="hover:h-52">
+                                <a class="text-sm font-semibold hover:underline hover:text-teal-300" href="">Cod: {{$product->id}}</a>
                                 <a href="{{route('products.show', $product)}}">
                                     <img class="h-48 w-full object-cover object-center" src="{{Storage::url($product->images->first()->url)}}" alt="">
                                 </a>
@@ -21,6 +22,9 @@
                                 <p class="font-bold text-truegray-700">
                                     $ {{$product->price}}
                                 </p>
+                                <x-button class="w-full mt-6">
+                                    Agregar al Carro
+                                </x-button>
                             </div>
                         </article>
                     </li>
@@ -37,4 +41,6 @@
             <div class="rounded animate-spin ease duration-300 w-10 h-10 border-2 border-teal-800"></div>
     </div>	
     @endif
+
 </div>
+

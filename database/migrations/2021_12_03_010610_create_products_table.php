@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->text('description');
-            $table->float('price');
+            $table->integer('price');
             $table->unsignedBigInteger('subcategory_id');
             $table->unsignedBigInteger('brand_id');
             $table->foreign('subcategory_id')->references('id')->on('subcategories');
