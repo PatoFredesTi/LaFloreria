@@ -13,6 +13,7 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"> 
         <aside>
+            {{$subcategoria}}
             <h2 class="font-semibold text-center mb-2 ">SubCategorias</h2>
             <ul class="divide-y divide-teal-200">
                 @foreach ($category->subcategories as $subcategory)
@@ -22,6 +23,7 @@
                     </li>
                 @endforeach
             </ul>
+            
             <h2 class="font-semibold text-center mb-2 mt-4">Tipo</h2>
             <ul>
                 @foreach ($category->brands as $brand)

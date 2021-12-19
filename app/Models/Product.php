@@ -19,11 +19,17 @@ class Product extends Model
         return $this->belongsToMany(Brand::class);
     }
 
+    public function category(){
+        return $this->belongsToMany(Category::class);
+    }
     
     public function subcategory(){
         return $this->belongsToMany(Subcategory::class);
     }
 
+    public function getStockAttribute(){
+        return $this->quantity;
+    }
     //Relacion muchos a muchos
     public function colors(){
         return $this->belongsToMany(Color::class);

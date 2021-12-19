@@ -12,36 +12,37 @@ use Livewire\Component;
 
 class CreateOrder extends Component
 {
-    public $departments=[], $cities=[] , $districts = [];
+    public $contact, $phone, $address, $reference, $shipping_cost=0, $total=0, $content;
+
+    public $departments, $cities=[] , $districts = [];
 
     public $department_id = "", $city_id = "", $district_id = "";
 
-    public $contact, $phone, $address, $reference, $shipping_cost=0, $total=0, $content;
+    
 
     public $rules = ['contact' => 'required', 'phone' => 'required', 'address' => 'required'];
 
     public function updateDepartmentId($value){
+        $department = Department::find($value);
+        $this->shipping_cost = $department->cost;
+
         $this->cities = City::where('department_id', $value)->get();
         $this->reset(['city_id', 'district_id']);
     }
 
-    public function updateDistrict($value){
-        $department = Department::find($value);
-        $this->shipping_cost = $department->cost;
-
-        $city = City::find($value);
-        $this->shipping_cost = $city->cost;
-        
+    public function cityId($value){
+        $this->districts = District::where('city_id', $value)->get();
+        $this->reset(['district_id']);
     }
 
-    public function create_order($value){
+    public function create_order(){
         $rules = $this->rules;
         $rules['contact']='required|string|max:255';
-        $rules['phone'] = 'required|numeric';
+        $rules['phone'] = 'required';
         $rules['address'] = 'required|string|max:255';
+        $rules['department_id'] = 'required';
         $this->validate($rules);
-        $department = Department::find($value);
-        $this->shipping_cost = $this->department->cost;
+
         $order = new Order();
         $order->user_id = auth()->user()->id;
         $order->contact = $this->contact;
@@ -49,7 +50,7 @@ class CreateOrder extends Component
         $order->address = $this->address;
         $order->reference = $this->reference;
         $order->shipping_cost = $this->shipping_cost;
-        $order->total = $this->total;
+        $order->total = $this->shipping_cost + Cart::subtotal();
         $order->content = Cart::content();
         //$order->status = Order::PENDIENTE;
 

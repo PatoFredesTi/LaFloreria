@@ -6,6 +6,9 @@ use Livewire\Component;
 
 use Livewire\WithPagination;
 
+use App\Models\Product;
+use Illuminate\Database\Eloquent\Builder;
+
 class CategoryFilter extends Component
 {
     use WithPagination;
@@ -21,6 +24,12 @@ class CategoryFilter extends Component
     public function render()
     {
         $products = $this->category->products()->where('status', 2)->paginate(20);
+
+       /* $productsQuery = Product::query()->whereHas('subcategory.category', function(Builder $query){
+            $query->where('id', $this->category);
+        });*/
+
+        //$products = $productsQuery->paginate(20);
 
         return view('livewire.category-filter', compact('products'));
     }

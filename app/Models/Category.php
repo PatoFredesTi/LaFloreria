@@ -22,7 +22,7 @@ class Category extends Model
     }
 
     public function products(){
-        return $this->hasManyThrough(Product::class, SubCategory::class);
+        return $this->hasMany(Product::class);
     }
 
     //URL

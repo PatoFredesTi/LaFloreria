@@ -1,5 +1,32 @@
 <x-app-layout>
-    <div class="container py-8 ">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 flex items-center">
+            <div class="flex items-center">
+                <div class=" rounded-full h-12 w-12 bg-blue-400 flex items-center justify-center">
+                    <i class="fas fa-check text-white"></i>
+                </div>
+            </div>
+
+            <div class="h-1 flex-1 bg-blue-400 mx-1"></div>
+
+            <div class="flex items-center">
+                <div class=" rounded-full h-12 w-12 bg-blue-400 flex items-center justify-center">
+                    <i class="fas fa-truck text-white"></i>
+                </div>
+            </div>
+
+            <div class="h-1 flex-1 bg-blue-400 mx-1"></div>
+
+            <div class="flex items-center">
+                <div class=" rounded-full h-12 w-12 bg-blue-400 flex items-center justify-center">
+                    <i class="fas fa-check text-white"></i>
+                </div>
+            </div>
+
+            <div class="h-1 flex-1 bg-blue-400 mx-1"></div>
+
+        </div>
+
         <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6">
             <p class="text-gray-700 uppercase">Numero de orden: Orden - <!--order-id--> 546</p>
         </div>

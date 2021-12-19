@@ -39,6 +39,10 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
+                        <x-jet-dropdown-link href="{{ route('admin.index') }}">
+                            Administrador
+                        </x-jet-dropdown-link>
+
                         <div class="border-t border-gray-100"></div>
 
                         <!-- Authentication -->
@@ -66,9 +70,7 @@
                             {{ __('Login') }}
                         </x-jet-dropdown-link>
 
-                        <x-jet-dropdown-link href="{{ route('register') }}">
-                            {{ __('Register') }}
-                        </x-jet-dropdown-link>
+
                     </x-slot>
                 </x-jet-dropdown>    
             </div>

@@ -22,6 +22,9 @@
         <!-- FlexSlider -->
         <link rel="stylesheet" href="{{ asset('vendor/Flex-Slider/flexslider.css')}}">
 
+        <!-- Dropzone -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         @livewireStyles
 
         <!-- Scripts -->
@@ -36,13 +39,28 @@
         <!-- FlexSlider -->
         <script src="{{ asset('vendor/Flex-Slider/jquery.flexslider-min.js')}}"></script>
 
+        <!-- Ckeditor -->
         <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+
+        <!-- Sweetalert -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Dropzone -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation')
+            @livewire('navigation-menu')
+
+            @if (isset($header))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
                 
             <!-- Page Content -->
             <main>
