@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
   public function files(Product $product, Request $request){
-      Storage::put('products', $request->file('file'));
+    
+    $request->validate([
+      'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:3072',
+    ]);
+
+    $url = Storage::put('public/products/', $request->file('file'));
+
+    $product->images()->create([
+      'url' => $url
+    ]);
   }
 }

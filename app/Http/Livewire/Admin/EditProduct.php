@@ -3,8 +3,10 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use App\Models\Image;
 use Livewire\Component;
 use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 class EditProduct extends Component
 {
@@ -15,6 +17,8 @@ class EditProduct extends Component
     public $category_id;
 
     public $name, $slug, $description, $price, $quantity;
+
+    protected $listeners = ['refreshProduct', 'delete'];
 
     protected $rules = [
         'category_id' => 'required|numeric',
@@ -32,6 +36,11 @@ class EditProduct extends Component
 
         $this->category_id = $product->category_id;
     }
+
+    public function refreshProduct(){
+        $this->product = $this->product->fresh();
+    }
+
     public function save(){
         $rules = $this->rules;
 
@@ -45,6 +54,26 @@ class EditProduct extends Component
         $this->emit('saved'); 
 
     }
+    public function deleteImage(Image $image){
+        Storage::delete($image->url);
+        $image->delete();
+
+        $this->product = $this->product->fresh();
+    }
+
+    public function delete(){
+
+        $images = $this->product->images;
+
+        foreach($images as $image){
+            Storage::delete($image->url);
+            $image->delete();
+        }
+
+        $this->product->delete();
+        return redirect()->route('admin.index');
+    }
+
     public function render()
     {
         return view('livewire.admin.edit-product')->layout('layouts.admin');

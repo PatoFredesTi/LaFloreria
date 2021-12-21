@@ -22,7 +22,8 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('price');
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            //$table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->integer('quantity')->nullable();
             $table->enum('status', [Product::BORRADOR,Product::PUBLICADO])->default(Product::BORRADOR);
 

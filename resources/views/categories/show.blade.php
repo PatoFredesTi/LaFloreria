@@ -5,4 +5,6 @@
         </figure>
     </div>
     @livewire('category-filter', ['category' => $category])
+
+
 </x-app-layout>
