@@ -30,15 +30,16 @@
                 <x-jet-label>
                     Icono
                 </x-jet-label>
-
+                
+                
                 <x-jet-input wire:model.defer="createForm.icon" type="text" class="w-full mt-1"  />
                 <x-jet-input-error for="createForm.icon" />
+                <a class="hover:text-blue-500 text-sm justify-end" target="_blank" href="https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free">Iconos para página</a>
             </div>
             <div class="col-span-6 sm:col-span-4">
                 <x-jet-label>
                     Imagen
                 </x-jet-label>
-
                 <input wire:model="createForm.image" accept="image/*" type="file" id="{{$rand}}">
                 <x-jet-input-error for="createForm.image" />
             </div>
@@ -91,9 +92,9 @@
                                     <x-button class="mx-1" wire:click="edit('{{$category->slug}}')">
                                         Editar
                                     </x-button>
-                                    <x-button wire:click="$emit('deleteCategory', '{{$category->slug}}')">
+                                    <x-jet-danger-button wire:click="$emit('deleteCategory', '{{$category->slug}}')">
                                         Eliminar
-                                    </x-button>
+                                    </x-jet-danger-button>
                                     
                                 </div>
                             </td>

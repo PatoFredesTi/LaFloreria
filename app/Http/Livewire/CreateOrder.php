@@ -14,37 +14,26 @@ class CreateOrder extends Component
 {
     public $contact, $phone, $address, $reference, $shipping_cost=0, $total=0, $content;
 
-    public $departments, $cities=[] , $districts = [];
+    public $departments;
 
-    public $department_id = "", $city_id = "", $district_id = "";
-
-    
+    public $department_id = "";
 
     public $rules = ['contact' => 'required', 'phone' => 'required', 'address' => 'required'];
 
     public function updateDepartmentId($value){
         $department = Department::find($value);
-        $this->shipping_cost = $department->cost;
-
-        $this->cities = City::where('department_id', $value)->get();
-        $this->reset(['city_id', 'district_id']);
-    }
-
-    public function cityId($value){
-        $this->districts = District::where('city_id', $value)->get();
-        $this->reset(['district_id']);
+        $this->shipping_cost = $department->cost;      
     }
 
     public function create_order(){
         $rules = $this->rules;
         $rules['contact']='required|string|max:255';
-        $rules['phone'] = 'required';
+        $rules['phone'] = 'required|numeric|';
         $rules['address'] = 'required|string|max:255';
         $rules['department_id'] = 'required';
         $this->validate($rules);
 
         $order = new Order();
-        $order->user_id = auth()->user()->id;
         $order->contact = $this->contact;
         $order->phone = $this->phone;
         $order->address = $this->address;
@@ -52,6 +41,8 @@ class CreateOrder extends Component
         $order->shipping_cost = $this->shipping_cost;
         $order->total = $this->shipping_cost + Cart::subtotal();
         $order->content = Cart::content();
+        $order->department->id = $this->department_id;
+        
         //$order->status = Order::PENDIENTE;
 
         $order->save();
@@ -71,7 +62,6 @@ class CreateOrder extends Component
 
     public function mount(){
         $this->departments = Department::all();
-        $this->cities = City::all();
     }
 
 

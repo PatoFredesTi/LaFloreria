@@ -48,9 +48,13 @@
         </div>
 
         <div>
-            <x-button class="mt-6 mb-4" wire:click="create_order">
+            <a href="/payment">
+            <x-button class="mt-6 mb-4" wire:loading.attr="disabled"
+                wire:click="create_order"
+                wire:target="create_order">
                 Continuar con la compra
             </x-button>
+            </a>
 
             <hr>
             <!-- ARREGLAR ANTES DE TITULO 
@@ -98,7 +102,7 @@
                 <p class="flex justify-between items-center mt-2">
                     Envio
                     <span class="font-semibold">
-                        {{$shipping_cost}}
+                       $ {{$shipping_cost}}
                     </span>
                 </p>
 

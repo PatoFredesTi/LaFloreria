@@ -11,33 +11,7 @@
 
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"> 
-        <aside>
-            {{$subcategoria}}
-            <h2 class="font-semibold text-center mb-2 ">SubCategorias</h2>
-            <ul class="divide-y divide-teal-200">
-                @foreach ($category->subcategories as $subcategory)
-                    <li class="py-2 text-sm ">
-                        <a class=" hover:bg-teal-200 hover:underline capitalize {{$subcategoria == $subcategory->name ? 'text-teal-400 font-semibold' : ''}}"
-                        wire:click="$set('subcategoria', '{{$subcategory->name}}')" href="">{{$subcategory->name}}</a>
-                    </li>
-                @endforeach
-            </ul>
-            
-            <h2 class="font-semibold text-center mb-2 mt-4">Tipo</h2>
-            <ul>
-                @foreach ($category->brands as $brand)
-                    <li class="my-2 text-sm ">
-                        <a class=" hover:bg-teal-200 hover:underline capitalize {{$tipo == $brand->name ? 'text-teal-400 font-semibold' : ''}}"}}" 
-                            wire:click="$set('tipo','{{$brand->name}}')"    href="">{{$brand->name}}</a>
-                    </li>
-                @endforeach
-            </ul>
-
-            <x-jet-button class="mt-4" wire:click="limpiar"> 
-                Eliminar Filtros
-            </x-jet-button>
-        </aside>
+   
 
         <div class=" md:col-span-2 lg:col-span-4">
             @if ($view == 'grid')
@@ -47,7 +21,7 @@
                         <article>
                             <figure>
                                 <a href="{{route('products.show', $product)}}">
-                                    <img class="h-48 w-full object-cover object-center" src="{{Storage::url($product->images->first()->url)}}" alt="">
+                                    <img class="h-48 w-full object-center object-scale-down" src="{{Storage::url($product->images->first()->url)}}" alt="">
                                 </a>
                                 </figure>
 

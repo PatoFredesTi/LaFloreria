@@ -17,7 +17,6 @@ class CreateCategory extends Component
     public $listeners = ['delete'];
 
     public $createForm = [
-        
         'name' => null,
         'slug' => null,
         'icon' => null,
@@ -38,7 +37,7 @@ class CreateCategory extends Component
         'createForm.name' => 'required|min:3|unique:categories,name',
         'createForm.slug' => 'required|min:3|unique:categories,slug',
         'createForm.icon' => 'required',
-        'createForm.image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+        'createForm.image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:3096',
     ];
 
     protected $validationAttributes = [
@@ -49,7 +48,7 @@ class CreateCategory extends Component
         'editForm.name' => 'nombre',
         'editForm.slug' => 'slug',
         'editForm.icon' => 'icono',
-        'editImage.image' => 'imagen',
+        'editImage' => 'imagen',
         
     ];
     public function updateCreateFormName($value){
@@ -57,8 +56,8 @@ class CreateCategory extends Component
     }
 
     public function mount(){
-        $this->getCategories();
         $this->rand = rand();
+        $this->categories = Category::all();
     }
 
     public function getCategories(){
@@ -67,7 +66,7 @@ class CreateCategory extends Component
 
     public function save(){
         $this->validate();
-        $image = $this->createForm['image']->store('categories'); 
+        $image = $this->createForm['image']->store('categories', 'public');
 
         $category = Category::create([
             'name' => $this->createForm['name'],
@@ -103,19 +102,17 @@ class CreateCategory extends Component
         ];
 
         if ($this->editImage){
-            $rules['editImage'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024';
+            $rules['editImage'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:3096';
         }
 
         $this->validate($rules);
-
-        if($this->editImage){
-            Storage::delete($this->editForm['image']);
-            $this->editForm['image'] = $this->editImage->store('categories');
+        if ($this->editImage){
+            Storage::delete([$this->editForm['image']]);
+            $this->editForm['image'] = $this->editImage->store('categories','public');
         }
 
         $this->category->update($this->editForm);
-        $this->reset(['editForm']);
-        $this->reset(['editImage']);
+        $this->reset('editForm','editImage');
         $this->getCategories();
 
     }

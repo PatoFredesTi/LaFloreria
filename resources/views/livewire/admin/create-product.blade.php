@@ -4,7 +4,7 @@
         <div class="mb-4">
             <x-jet-label value="Categorias" class="text-lg"/>
             <select class=" w-96 rounded-lg shadow-lg border-teal-500 " wire:model="category_id">
-                <option selected disabled value="">Seleccione una categoria</option>
+                <option value="" selected disabled>Seleccione una categoria</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
@@ -51,13 +51,13 @@
         <div class="grid grid-cols-2 gap-6"> 
             <div class="mb-4">
                 <x-jet-label value="Precio" class="text-lg"/>
-                <x-jet-input type="number" class="w-full" wire:model="price"/>
+                <x-jet-input type="number" min=0 class="w-full" wire:model="price"/>
                 <x-jet-input-error for="price"/>
             </div>
     
             <div class="mb-4">
                 <x-jet-label value="Stock" class="text-lg"/>
-                <x-jet-input type="number" class="w-full" wire:model="quantity"/>
+                <x-jet-input type="number" min=0 class="w-full" wire:model="quantity"/>
                 <x-jet-input-error for="quantity"/>
             </div>
         </div>

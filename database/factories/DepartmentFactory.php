@@ -22,7 +22,7 @@ class DepartmentFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'cost' => $this->faker->randomElement([30, 40, 50, 60, 70]),
+            'cost' => $this->faker->randomElement([3000, 4000, 5000, 6000, 7000]),
         ];
     }
 }

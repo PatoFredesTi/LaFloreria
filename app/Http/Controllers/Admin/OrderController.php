@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
     public function index(){
+
         $orders = Order::query();
 
         if (request('status')) {
@@ -22,17 +24,11 @@ class OrderController extends Controller
         $entregado = $orders->where('status', 4)->count();
         $anulado = $orders->where('status', 5)->count();
 
-        return view('orders.index', compact('orders', 'pendiente', 'recibido', 'enviado', 'entregado', 'anulado'));
+        
+        return view('admin.orders.index', compact('orders', 'pendiente', 'recibido', 'enviado', 'entregado', 'anulado'));
     }
 
-    public function show(Order $order){
-        return view('orders.show', compact('order'));
-    }
-
-    public function payment(Order $order){
-
-        $items = json_decode($order->content);
-
-        return view('orders.payment', compact('order', 'items'));
+    public function show(){ 
+        return view('admin.orders.show');
     }
 }

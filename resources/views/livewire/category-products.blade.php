@@ -9,7 +9,7 @@
                             <figure class="hover:h-52">
                                 <a class="text-sm font-semibold hover:underline hover:text-teal-300" href="">Cod: {{$product->id}}</a>
                                 <a href="{{route('products.show', $product)}}">
-                                    <img class="h-48 w-full object-cover object-center" src="{{Storage::url($product->images->first()->url)}}" alt="">
+                                    <img class="h-48 w-full object-center object-scale-down" src="{{Storage::url($product->images->first()->url)}}" alt="">
                                 </a>
                             </figure>
 
@@ -19,12 +19,11 @@
                                         {{Str::limit($product->name, 20)}}
                                     </a>
                                 </h1>
-                                <p class="font-bold text-truegray-700">
+                                <p class="font-bold text-teal-500 text-lg text-center">
                                     $ {{$product->price}}
                                 </p>
-                                <x-button class="w-full mt-6">
-                                    Agregar al Carro
-                                </x-button>
+
+                                
                             </div>
                         </article>
                     </li>
