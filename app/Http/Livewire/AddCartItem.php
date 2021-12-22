@@ -15,7 +15,7 @@ class AddCartItem extends Component
 
     public function mount()
     {
-        $this->quantity = $this->product->quantity;
+        $this->quantity = qty_available($this->product->id);
         $this->options['image'] = Storage::url($this->product->images->first()->url);
     }
 
@@ -27,6 +27,7 @@ class AddCartItem extends Component
         $this->qty = min(10, $this->qty + 1);
     }
 
+
     public function addItem(){
         Cart::add(['id' => $this->product->id,
                 'name' => $this->product->name,
@@ -35,11 +36,12 @@ class AddCartItem extends Component
                 'options' => $this->options,
                 'weight' => 0,]);
 
-        $this->emit('render');
-            
-        //$this->quantity = qty_available($this->product->id);
+        $this->quantity = qty_available($this->product->id);
 
-        
+        $this->reset('qty');
+
+        $this->emit('render');
+
     }
 
     public function render()

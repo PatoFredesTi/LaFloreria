@@ -48,13 +48,13 @@
         </div>
 
         <div>
-            <a href="/payment">
+
             <x-button class="mt-6 mb-4" wire:loading.attr="disabled"
-                wire:click="create_order"
-                wire:target="create_order">
+                wire:click="orderMuestra"
+                wire:target="orderMuestra">
                 Continuar con la compra
             </x-button>
-            </a>
+
 
             <hr>
             <!-- ARREGLAR ANTES DE TITULO 

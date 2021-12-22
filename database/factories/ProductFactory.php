@@ -31,13 +31,6 @@ class ProductFactory extends Factory
         }
 
         return [
-            'name' => $name,
-            'slug' => Str::slug($name),
-            'description' => $this->faker->text(),
-            'price' => $this->faker->randomElement([9990, 15990, 19990, 25990, 29990]),
-            'category_id' => $category->id,
-            'quantity' => $quantity,
-            'status' => 2,
         ];
     }
 }

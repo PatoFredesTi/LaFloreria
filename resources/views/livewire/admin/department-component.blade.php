@@ -66,9 +66,9 @@
                                     <x-button class="mx-1" wire:click="edit({{$department}})">
                                         Editar costo de envio
                                     </x-button>
-                                    <x-button class="mx-1" wire:click="delete({{$department}})">
+                                    <x-jet-danger-button class="mx-1" wire:click="$emit('deleteDepartment',{{$department}})">
                                         Eliminar
-                                    </x-button>
+                                    </x-jet-danger-button>
 
                                     
                                 </div>
@@ -109,5 +109,33 @@
             </x-button>
         </x-slot>
     </x-jet-dialog-modal>
+
+    @push('script')
+    <script>
+        Livewire.on('deleteDepartment', departmentName => {
+            
+            Swal.fire({
+                title: 'Deseas eliminar este Sector?',
+                text: "Esta accion no se puede deshacer!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed){
+
+                    Livewire.emitTo('admin.department-component','delete', departmentName);
+
+                    Swal.fire(
+                        'Eliminado!',
+                        'El producto ha sido eliminado.',
+                        'success'
+                    )
+                }
+            })
+        })
+    </script>
+    @endpush
     
 </div>

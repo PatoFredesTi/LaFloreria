@@ -16,7 +16,8 @@
                 }).then((result) => {
                     if (result.isConfirmed){
                         Livewire.emitTo('admin.create-category', 'delete', categorySlug);
-                        if('admin.create-category','delete', categorySlug == true){
+                        Livewire.get('admin.create-category').$emitted.deleteSuccess();
+                        if($emitted.deleteSuccess){
                             Swal.fire(
                             'Eliminado!',
                             'Tu categoria ha sido eliminada.',

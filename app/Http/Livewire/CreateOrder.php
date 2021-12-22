@@ -53,6 +53,19 @@ class CreateOrder extends Component
 
     }
 
+    public function orderMuestra(){
+        $rules = $this->rules;
+        $rules['contact']='required|string|max:255';
+        $rules['phone'] = 'required|numeric|';
+        $rules['address'] = 'required|string|max:255';
+        $rules['department_id'] = 'required';
+        $this->validate($rules);
+
+        Cart::destroy();
+
+        return redirect()->route('payment');
+    }
+
     public function validate_ship(){
         $this->resetValidation([
             'contact',

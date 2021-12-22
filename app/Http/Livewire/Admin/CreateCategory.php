@@ -74,7 +74,6 @@ class CreateCategory extends Component
             'icon' => $this->createForm['icon'],
             'image' => $image,
         ]);
-
         $this->rand = rand();
         $this->reset('createForm');
         $this->getCategories();
@@ -82,7 +81,6 @@ class CreateCategory extends Component
     }
 
     public function edit(Category $category){
-        
         $this->reset(['editImage']);
         $this->resetValidation();
         $this->category = $category;
@@ -92,6 +90,14 @@ class CreateCategory extends Component
         $this->editForm['slug'] = $category->slug;
         $this->editForm['icon'] = $category->icon;
         $this->editForm['image'] = $category->image;
+    }
+
+    public function resetPage(){
+        $this->reset('editForm');
+        $this->reset('editImage');
+        $this->reset('createForm');
+        $this->resetValidation();
+        
     }
 
     public function update(){

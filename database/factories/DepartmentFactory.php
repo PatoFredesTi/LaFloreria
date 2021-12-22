@@ -21,8 +21,6 @@ class DepartmentFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word(),
-            'cost' => $this->faker->randomElement([3000, 4000, 5000, 6000, 7000]),
         ];
     }
 }

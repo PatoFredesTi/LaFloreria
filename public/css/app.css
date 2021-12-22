@@ -1969,6 +1969,9 @@ select {
 .leading-4 {
 	line-height: 1rem;
 }
+.leading-none {
+	line-height: 1;
+}
 .tracking-widest {
 	letter-spacing: 0.1em;
 }
@@ -2050,6 +2053,10 @@ select {
 .text-green-800 {
 	--tw-text-opacity: 1;
 	color: rgba(6, 95, 70, var(--tw-text-opacity));
+}
+.text-red-100 {
+	--tw-text-opacity: 1;
+	color: rgba(254, 226, 226, var(--tw-text-opacity));
 }
 .text-teal-400 {
 	--tw-text-opacity: 1;
