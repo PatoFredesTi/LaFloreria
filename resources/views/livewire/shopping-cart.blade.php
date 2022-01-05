@@ -18,15 +18,22 @@
                         <tr>
                             <td>
                                 <div class="flex">
-                                    <img class="h-15 w-20 object-cover mr-4" src="{{$item->options->image}}">
+                                    <a href="">
+                                        <img class="h-15 w-20 object-cover mr-4" src="{{$item->options->image}} ">
+                                    </a>
                                     <div>
                                         <p class="font-bold" >{{$item->name}}</p>
                                     </div>
+
                                 </div>
 
                             </td>
                             <td class="text-center">
-                                <span>$ {{$item->price}}</span>
+                                <span>$ {{
+                                number_format($item->price);
+
+                            
+                                }}</span>
                                 <a class="ml-6 cursor-pointer hover:text-red-600"
                                     wire:click="delete('{{$item->rowId}}')">
                                     <i class="fas fa-trash"></i>
@@ -38,7 +45,7 @@
                                 </div>
                             </td>
                             <td class="text-center">
-                                <span>$ {{$item->price * $item->qty}}</span>
+                                <span>$ {{number_format($item->price * $item->qty)}}</span>
                             </td>
                         </tr>
 

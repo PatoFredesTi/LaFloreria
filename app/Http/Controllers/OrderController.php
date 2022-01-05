@@ -7,29 +7,26 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    
+
     public function index(){
-        $orders = Order::query();
 
-        if (request('status')) {
-            $orders->where('status', request('status'));
-        }
+        $orders = Order::where('user_id', auth()->user()->id)->get();
 
-        $orders = $orders->get();
-
-        $pendiente = $orders->where('status', 1)->count();
-        $recibido = $orders->where('status', 2)->count();
-        $enviado = $orders->where('status', 3)->count();
-        $entregado = $orders->where('status', 4)->count();
-        $anulado = $orders->where('status', 5)->count();
-
-        return view('orders.index', compact('orders', 'pendiente', 'recibido', 'enviado', 'entregado', 'anulado'));
+        return view('orders.index', compact('orders'));
     }
 
     public function show(Order $order){
-        return view('orders.show', compact('order'));
+
+        //$this->authorize('author', $order);
+
+        $items = json_decode($order->content);
+
+        return view('orders.show', compact('order', 'items'));
     }
 
     public function payment(Order $order){
+        $this->authorize('author', $order);
 
         $items = json_decode($order->content);
 

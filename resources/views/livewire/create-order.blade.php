@@ -24,7 +24,7 @@
                     {{--Departamentos--}}
                     <div>
                         <x-jet-label class="mb-1 text-lg" value="Selecciona Sector de envio" />
-                        <select class="w-full rounded-lg shadow-md mb-2">
+                        <select class="w-full rounded-lg shadow-md mb-2" wire:model = "department_id">
                             <option value="" disabled selected>Selecciona el sector</option>
                             @foreach($departments as $department)
                                 <option value="{{$department->id}}">{{$department->name}}</option>
@@ -41,7 +41,7 @@
                         <x-jet-input type="text" placeholder="Ingrese alguna referencia" class="w-full"/>  
                         <x-jet-input-error for="reference" />
 
-                        <!-- Falta agregar un calendario para la fecha -->
+
                     </div>
                 </div>
             </div>
@@ -49,9 +49,9 @@
 
         <div>
 
-            <x-button class="mt-6 mb-4" wire:loading.attr="disabled"
-                wire:click="orderMuestra"
-                wire:target="orderMuestra">
+            <x-button class="mt-6 mb-4" wire:click="create_order" 
+            wire:loading.attr="disabled"
+            wire:target="create_order">
                 Continuar con la compra
             </x-button>
 
@@ -80,7 +80,7 @@
 
                             <p>Cant: {{$item->qty}}</p>
 
-                            <p>$ {{$item->price}}</p>
+                            <p>$ {{number_format($item->price)}}</p>
                         </article>
                     </li>
                 @empty
@@ -102,7 +102,7 @@
                 <p class="flex justify-between items-center mt-2">
                     Envio
                     <span class="font-semibold">
-                       $ {{$shipping_cost}}
+                        $ {{$shipping_cost}}
                     </span>
                 </p>
 
@@ -115,3 +115,5 @@
         </div>
     </div>
 </div>
+
+

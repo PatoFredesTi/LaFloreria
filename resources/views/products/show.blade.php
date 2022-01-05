@@ -13,7 +13,7 @@
             <div>
                 <p class="text-trueGray-700 text-lg">ID: {{$product->id}}</p>
                 <h1 class="text-xl font-bold text-trueGray-700">{{$product->name}}</h1>
-                <p class="text-2xl font-semibold text-trueGray-700 my-6">$ {{$product->price}}</p>
+                <p class="text-2xl font-semibold text-trueGray-700 my-6">$ {{number_format($product->price)}}</p>
 
                 <div class="bg-white rounded-lg shadow-lg mb-6 mt-4">
                     <div class="p-4 flex items-center">

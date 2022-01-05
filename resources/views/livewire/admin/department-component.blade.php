@@ -58,7 +58,7 @@
                             </td>
                             <td class="py-2">
                                 <span class="mr-4">
-                                   ${{$department->cost}}
+                                   ${{number_format($department->cost)}}
                                 </span>
                             </td>
                             <td class="py-2">

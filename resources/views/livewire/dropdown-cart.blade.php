@@ -22,7 +22,7 @@
 
                             <p>Cant: {{$item->qty}}</p>
 
-                            <p>$ {{$item->price}}</p>
+                            <p>$ {{number_format($item->price)}}</p>
                         </article>
                     </li>
                 @empty

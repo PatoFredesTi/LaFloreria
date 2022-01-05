@@ -1,5 +1,5 @@
 
-<header class="bg-gray-100 sticky top-0 z-50" x-data="dropdown()">
+<header class="bg-gray-100 sticky top-0" style="z-index: 900" x-data="dropdown()">
     <div class="container flex items-center h-16 justify-between md:justify-start">
         <a href="/" >
             <img src="{{ asset('img/logo.png') }}" alt="logo" class="h-16 w-auto ">
@@ -39,6 +39,10 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
+                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                            Mis Ordenes
+                        </x-jet-dropdown-link>
+
                         <x-jet-dropdown-link href="{{ route('admin.index') }}">
                             Administrador
                         </x-jet-dropdown-link>
@@ -68,6 +72,10 @@
                     <x-slot name="content">
                         <x-jet-dropdown-link href="{{ route('login') }}">
                             {{ __('Login') }}
+                        </x-jet-dropdown-link>
+
+                        <x-jet-dropdown-link href="{{ route('register') }}">
+                            {{ __('Register') }}
                         </x-jet-dropdown-link>
 
 

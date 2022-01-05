@@ -20,7 +20,7 @@
                                     </a>
                                 </h1>
                                 <p class="font-bold text-teal-500 text-lg text-center">
-                                    $ {{$product->price}}
+                                    $ {{number_format($product->price)}}
                                 </p>
 
                                 

@@ -11,11 +11,8 @@ class Department extends Model
 
     protected $fillable = [
         'name',
+        'cost',
     ];
-
-    public function cities(){
-        return $this->hasMany(City::class);
-    }
 
     public function orders(){
         return $this->hasMany(Order::class);

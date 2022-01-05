@@ -81,7 +81,7 @@
                                         @endswitch
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        $ {{$product->price}}
+                                        $ {{number_format($product->price)}}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <a href="{{route('admin.products.edit', $product)}}">
