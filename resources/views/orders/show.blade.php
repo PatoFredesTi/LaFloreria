@@ -37,8 +37,17 @@
 
         </div>
 
-        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6">
+        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 flex items-center">
             <p class="text-gray-700 uppercase">Numero de orden: Orden - {{$order->id}}</p>
+
+            @if ($order->status == 1)
+                <a class="ml-auto" href="{{route('orders.payment', $order)}}">
+                    <x-button>
+                        ir a pagar
+                    </x-button>
+                </a>
+            @endif
+
         </div>
 
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">

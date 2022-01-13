@@ -8,6 +8,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Livewire\ShoppingCart;
 use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\PaymentOrder;
+use App\Models\Order;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,3 +45,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 */
+

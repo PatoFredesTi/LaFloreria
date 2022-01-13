@@ -21,6 +21,24 @@ function qty_added($product_id){
     }
 }
 
+
 function qty_available($product_id){
     return quantity($product_id) - qty_added($product_id);
+}
+
+function discount($item){
+    $product = Product::find($item->id);
+    $qty_available = qty_available($item->id);
+
+    $product->quantity = $qty_available;
+    $product->save();
+}
+
+function increase($item){
+    $product = Product::find($item->id);
+
+    $quantity = quantity($item->id) + $item->qty;
+
+    $product->quantity = $quantity;
+    $product->save();
 }
