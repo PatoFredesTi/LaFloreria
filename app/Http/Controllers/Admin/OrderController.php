@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
     public function index(){
 
-        $orders = Order::query();
+        $orders = Order::query()->where('status', '<>', '1');
 
         if (request('status')) {
             $orders->where('status', request('status'));
@@ -28,7 +28,7 @@ class OrderController extends Controller
         return view('admin.orders.index', compact('orders', 'pendiente', 'recibido', 'enviado', 'entregado', 'anulado'));
     }
 
-    public function show(){ 
-        return view('admin.orders.show');
+    public function show(Order $order){ 
+        return view('admin.orders.show', compact('order'));
     }
 }

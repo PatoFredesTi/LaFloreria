@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Livewire\Admin\DepartmentComponent;
+use App\Http\Livewire\Admin\UserComponent;
 
 
 
@@ -25,3 +26,5 @@ Route::get('orders', [OrderController::class, 'index'])->name('admin.orders.inde
 Route::get('orders/{order}', [OrderController::class, 'show'])->name('admin.orders.show');
 
 Route::get('departments', DepartmentComponent::class)->name('admin.departments.index');
+
+Route::get('users', UserComponent::class)->name('admin.users.index');

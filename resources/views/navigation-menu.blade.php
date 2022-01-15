@@ -18,11 +18,14 @@
                     <x-jet-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.index')">
                         Categorias
                     </x-jet-nav-link>
-                    <!--<x-jet-nav-link href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
+                    <x-jet-nav-link href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
                         Ordenes
-                    </x-jet-nav-link>-->
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{route('admin.departments.index')}}" :active="request()->routeIs('admin.departments.*')">
                         Sectores
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{route('admin.users.index')}}" :active="request()->routeIs('admin.users.index')">
+                        Usuarios
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -153,11 +156,14 @@
             <x-jet-responsive-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.index')">
                 Categorias
             </x-jet-responsive-nav-link>
-            <!--<x-jet-responsive-nav-link href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.order')">
+            <x-jet-responsive-nav-link href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.order')">
                 Ordenes
-            </x-jet-responsive-nav-link>-->
+            </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{route('admin.departments.index')}}" :active="request()->routeIs('admin.departments.index')">
                 Sectores
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{route('admin.users.index')}}" :active="request()->routeIs('admin.users.index')">
+                Usuarios
             </x-jet-responsive-nav-link>
         </div>
 
